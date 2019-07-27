@@ -1,0 +1,145 @@
+<html>
+<head>
+<title>Clock</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fascinate&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<script>
+    function realClock()
+    {
+        var clock = document.getElementById("clock");
+        var currentTime = new Date();
+        var date = currentTime.getDate();
+        var month = currentTime.getMonth();
+        var years = currentTime.getFullYear();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var mili = currentTime.getMilliseconds();
+        var y = "AM";
+        if(hours >= 12)
+        {
+            y = "PM";
+        }
+        if( hours > 12)
+        {
+            hours = hours - 12;
+        }
+        if(minutes < 10)
+        {
+            minutes = "0" + minutes;
+        }
+        if(seconds < 10)
+        {
+            seconds = "0" + seconds;
+        }
+        if(mili < 10)
+        {
+            mili = "0" + mili;
+        }
+        document.getElementById("clock").innerHTML = hours + ":" + minutes + ":" + seconds + " " + y;
+        var t = setTimeout(realClock, 1000);
+        document.getElementById("date").innerHTML = date + "." + month + "." + years;
+    }
+</script>
+<style>
+body{
+    background-image: url("https://blenderartists.org/uploads/default/original/4X/7/e/2/7e2d7bea4ac21388c4a96e1371f375c4ce00094b.jpg");
+    color: white;
+}
+.main{
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 30px;
+    letter-spacing: 4px;
+    }
+    #date,#clock{
+        font-family: 'Luckiest Guy', cursive;
+        text-align: center;
+        font-size: 100px;
+        letter-spacing: 10px;
+        margin-bottom: 127px;
+    }
+    #date{
+        margin-top: 150px;
+        margin-bottom: 30px;
+    }
+    @media screen and (max-width :850px){
+        #date,#clock{
+            font-size : 80px;
+        }
+        .main{
+            font-size: 42px;
+            margin-bottom: 170px;
+        }
+    }
+    @media screen and (max-width: 670px){
+        #date,#clock{
+            font-size: 60px;
+        }
+        .main{
+            font-size: 32px;
+            margin-bottom: 190px;
+        }
+    }
+    @media screen and (max-width:550px){
+        #date,#clock{
+            font-size: 45px;
+        }
+        .main{
+            font-size: 25px;
+            margin-bottom: 210px;
+        }
+    }
+    @media screen and (max-width :450px){
+        #date,#clock{
+            font-size: 38px;
+        }
+        .main{
+            font-size : 25px;
+            margin-bottom: 230px;
+        }
+    }
+    @media screen and (max-width :374px){
+        #date,#clock{
+            font-size: 32px;
+        }
+        .main{
+            font-size : 25px;
+            margin-bottom: 250px;
+        }
+    }
+    @media screen and (max-width :305px){
+        #date,#clock{
+            font-size: 26px;
+        }
+        .main{
+            font-size : 24px;
+            margin-bottom: 250px;
+        }
+        #clock{
+            margin-bottom: 230px;
+        }
+    }
+    .footer{
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 15px;
+        color: grey;
+    }
+</style>
+<body onload="realClock()">
+    <h2 class="main">Date & Time <br>
+       </h2>
+       <div id="date"></div>
+       <div id="clock"></div>
+    <footer class="footer">
+        Copyright &copy &nbsp;
+        Made by Aayush Vj
+    </footer>
+</body>
+</html>

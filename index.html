@@ -40,6 +40,7 @@
         {
             mili = "0" + mili;
         }
+        month = month + 1;
         document.getElementById("clock").innerHTML = hours + ":" + minutes + ":" + seconds + " " + y;
         var t = setTimeout(realClock, 1000);
         document.getElementById("date").innerHTML = date + "." + month + "." + years;
